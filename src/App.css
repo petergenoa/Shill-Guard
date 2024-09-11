@@ -1,5 +1,38 @@
-:root {
-  --tg-theme-bg-color: #efeff3;
-  --tg-theme-button-color: #2eaddc;
-  --tg-theme-button-text-color: white;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #181821;
+  box-sizing: border-box;
+}
+
+#root {
+  overflow-y: auto;
+  min-height: 100vh;
+  background-color: #18222d;
+  font-family: 'Lato', sans-serif;
+  background-image: url("../src/assets/background.jpg");
+  background-size: cover;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+  
+}
+
+.Content {
+  flex: 1;
+  padding: 20px;
+  max-height: calc(100vh - 146px);
+  overflow: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.Content::-webkit-scrollbar { 
+  display: none; /* Safari and Chrome */
 }
