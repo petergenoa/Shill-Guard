@@ -16,18 +16,8 @@ import More from "./pages/More";
 import NavBar from "./pages/NavBar";
 import { UserProvider } from "./contexts/UserContext";
 
-declare global {
-  interface Window {
-      Telegram:any;
-  }
-}
-
 function App() {
   const { network } = useTonConnect();
-
-  const tg = window.Telegram.WebApp;
-  tg.enableClosingConfirmation();
-  tg.expand();
 
   return (
     <UserProvider>
