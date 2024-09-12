@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './styles/Home.css';
-import Logo from '../assets/logo.png';
+import Logo from '../assets/logo-blue.png';
 import XIcon from '@mui/icons-material/X';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -136,44 +136,44 @@ const Home = () => {
                                         <img src="https://via.placeholder.com/50" alt={""} className="table-image" />
                                         <div className='table-item-title'>
                                             <div className='table-item-title-inner'>
-                                                #{index + 1}. {item.NameOfCallGroup}
+                                                <span className='index-title'><span>#{index + 1}. </span>{item.NameOfCallGroup}</span>
                                                 <div className='table-item-social'>
                                                     {item.TelegramLink ? <TelegramIcon className='telegram' /> : <></>}
                                                     {item.TwitterLink ? <XIcon className='twitter' /> : <></>}
                                                 </div>
                                             </div>
                                             <div className='table-item-second-row'>
-                                                <div className='table-item-token-name'><b>Token:</b> <div className='inner'>{item.TokenName}</div></div>
-                                                <div className='table-item-timestamp'>{item.Timestamp}</div>
+                                                <div className='table-item-token-name'><b className='index-title'>Token:</b> <div className='inner'>{item.TokenName}</div></div>
+                                                <div className='table-item-timestamp'>{item.Timestamp} UTC</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className='table-item-data'>
                                         <div>
-                                            <div>CallMCp</div>
+                                            <div className='ticker-title'>CallMCp</div>
                                             <div>{item.TotalMarketCapIN}</div>
                                         </div>
                                         <div>
-                                            <div>MktCp</div>
+                                            <div className='ticker-title'>MktCp</div>
                                             <div>{item.TotalMarketCap}</div>
                                         </div>
                                         <div>
-                                            <div>Vol.</div>
+                                            <div className='ticker-title'>Vol.</div>
                                             <div>{item.VolumeGenereted_h1}</div>
                                         </div>
 
                                         <div>
-                                            <div>CallEfc</div>
+                                            <div className='ticker-title'>CallEfc</div>
                                             <div className={parseFloat(item.ImpactOfCall) >= 0 ? "green" : "red"}>{item.ImpactOfCall}</div>
                                         </div>
 
                                         <div>
-                                            <div>Trace</div>
+                                            <div className='ticker-title'>Trace</div>
                                             <div className={parseFloat(item.SuccessRate) >= 0 ? "green" : "red"}>{item.SuccessRate}</div>
                                         </div>
 
                                         <div>
-                                            <div>Peak</div>
+                                            <div className='ticker-title'>Peak</div>
                                             <div className="green">{item.FromCalltoPeak}</div>
                                         </div>
                                     </div>

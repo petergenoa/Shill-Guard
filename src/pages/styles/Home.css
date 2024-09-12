@@ -81,6 +81,9 @@
   }
 
 
+  .table-content {
+    margin: 2px 12px;
+  }
 
   .table-item {
     border: 2px solid #00c8fb;
@@ -93,7 +96,7 @@
     display: flex;
     gap: 6px;
     align-items: flex-start;
-    border-bottom: 1px solid #00c8fb;
+    border-bottom: 1px solid #00c9fb77;
     padding-bottom: 4px;
   }
 
@@ -118,6 +121,7 @@
     align-items: center;
     gap: 4px;
     justify-content: space-between;
+    text-decoration: underline;
   }
 
   .table-item-social {
@@ -149,7 +153,9 @@
   }
 
   .table-item-token-name .inner {
-    color: white;
+    color: lightyellow;
+    /* text-decoration: underline; */
+
     background: #222222;
     border: 1px solid #00c8fb;
     padding: 0px 15px;
@@ -159,7 +165,8 @@
   .table-item-timestamp {
     text-align: end;
     font-size: 12px;
-    color: lightgrey;
+    color: lightyellow;
+    width: 80px;
   }
 
   .table-item-data {
@@ -169,6 +176,14 @@
     gap: 10px;
     font-size: 12px;
     justify-content: space-between;
+  }
+
+  .ticker-title {
+    color: gray;
+  }
+
+  .index-title {
+    color: lightyellow;
   }
 
   .table-item-data div {
@@ -190,7 +205,7 @@
 
   .table-item-buttons div a {
     text-decoration: none;
-    color: white;
+    color: lightyellow;
   }
 
   .table-item-buy a {
@@ -202,11 +217,13 @@
   .table-item-buy {
     border: 1px solid #00c8fb;
     background-color: #222222;
+    color: lightyellow;
   }
 
   .table-item-chart {
     border: 1px solid #00c8fb;
     background-color: #222222;
+    color: lightyellow;
   }
 
   .table-item-chart a {
@@ -218,6 +235,7 @@
   .table-item-scan {
     border: 1px solid #00c8fb;
     background-color: #222222;
+    color: lightyellow;
   }
 
   .table-item-scan a {
