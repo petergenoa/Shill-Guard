@@ -97,6 +97,10 @@ const Home = () => {
         fetchTableData();
     }, []);
 
+    const getImageNameFromUrl = (url: string) => {
+        const parts = url.split('/');
+        return parts[parts.length - 1];
+    };
 
     return(
         <div>
@@ -133,7 +137,7 @@ const Home = () => {
                             <div className={`table-item ${index % 2 === 0 ? "even-row" : "odd-row"}`} key={index}>
                                 <div>
                                     <div className='table-item-first-row'>
-                                        <img src="https://via.placeholder.com/50" alt={""} className="table-image" />
+                                        <img src={`../src/assets/groups/${getImageNameFromUrl(item.CryptoGroupImage)}`} alt={""} className="table-image" />
                                         <div className='table-item-title'>
                                             <div className='table-item-title-inner'>
                                                 <span className='index-title'><span>#{index + 1}. </span>{item.NameOfCallGroup}</span>
