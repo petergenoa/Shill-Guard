@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import './styles/Home.css';
+import Logo from '../assets/logo.png';
 import XIcon from '@mui/icons-material/X';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
+import SearchIcon from '@mui/icons-material/Search';
 
 interface NewsItem {
     Name: string;
@@ -95,6 +100,14 @@ const Home = () => {
 
     return(
         <div>
+            <div className='header'>
+                <img src={Logo} alt="" />
+                <div>
+                    <input type="text" placeholder='Search token...' />
+                    <SearchIcon />
+                </div>
+                
+            </div>
             <div className="news-bar-container">
                 {loading ? (
                     <p>Loading news...</p>
@@ -161,12 +174,13 @@ const Home = () => {
 
                                         <div>
                                             <div>Peak</div>
-                                            <div className={parseFloat(item.FromCalltoPeak) >= 0 ? "green" : "red"}>{item.FromCalltoPeak}</div>
+                                            <div className="green">{item.FromCalltoPeak}</div>
                                         </div>
                                     </div>
                                     <div className='table-item-buttons'>
-                                        <div className='table-item-buy'><a href={item.BuyLink}>Buy</a></div>
-                                        <div className='table-item-chart'><a href={item.BuyLink}>Chart</a></div>
+                                        <div className='table-item-buy'><a href={item.BuyLink}><AttachMoneyIcon />Buy</a></div>
+                                        <div className='table-item-chart'><a href={item.BuyLink}><ShowChartIcon />Chart</a></div>
+                                        <div className='table-item-scan'><a href={item.BuyLink}><TravelExploreOutlinedIcon />EthScan</a></div>
                                     </div>
                                 </div>
                                 

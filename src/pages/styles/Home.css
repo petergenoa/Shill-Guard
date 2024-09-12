@@ -1,3 +1,39 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.header img {
+    width: 70px;
+}
+
+.header svg {
+    font-size: 28px;
+    fill: #00c8fb;
+}
+
+.header div {
+    border: 1px solid #00c8fb;
+    background-color: #222222;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 16px;
+}
+
+.header input {
+    width: 140px;
+    background-color: #222222;
+    border: none;
+    color: white;
+    outline: none;
+    font-size: 16px;
+}
+
 .news-bar-container {
     width: 100%;
     overflow: hidden; /* Hide overflow to ensure clean scrolling */
@@ -19,7 +55,7 @@
   .news-item {
     display: inline-flex;
     align-items: center;
-    margin-right: 60px; /* Space between news items */
+    margin-right: 20px; /* Space between news items */
   }
   
   .news-image {
@@ -32,7 +68,7 @@
   .news-index {
     font-size: 24px;
     font-weight: bold;
-    margin-right: 10px;
+    margin-right: 4px;
   }
   
   @keyframes scroll {
@@ -48,7 +84,7 @@
 
   .table-item {
     border: 2px solid #00c8fb;
-    border-radius: 12px;
+    border-radius: 6px;
     padding: 8px;
     margin-bottom: 10px;
   }
@@ -113,7 +149,11 @@
   }
 
   .table-item-token-name .inner {
-    color: #00c8fb;
+    color: white;
+    background: #222222;
+    border: 1px solid #00c8fb;
+    padding: 0px 15px;
+    border-radius: 6px;
   }
 
   .table-item-timestamp {
@@ -142,10 +182,10 @@
   }
 
   .table-item-buttons div {
-    width: 140px;
+    width: 100px;
     text-align: center;
-    padding: 4px;
-    border-radius: 12px;
+    padding: 2px 4px;
+    border-radius: 6px;
   }
 
   .table-item-buttons div a {
@@ -153,12 +193,37 @@
     color: white;
   }
 
+  .table-item-buy a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .table-item-buy {
-    background-color: #00c8fb;
+    border: 1px solid #00c8fb;
+    background-color: #222222;
   }
 
   .table-item-chart {
-    background-color: green;
+    border: 1px solid #00c8fb;
+    background-color: #222222;
+  }
+
+  .table-item-chart a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .table-item-scan {
+    border: 1px solid #00c8fb;
+    background-color: #222222;
+  }
+
+  .table-item-scan a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .green {
