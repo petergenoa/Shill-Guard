@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './styles/Home.css';
 import Logo from '../assets/logo-blue.png';
+import Folder from '../assets/groups/shrimpycall.jpg';
 import XIcon from '@mui/icons-material/X';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -99,7 +100,9 @@ const Home = () => {
 
     const getImageNameFromUrl = (url: string) => {
         const parts = url.split('/');
-        return parts[parts.length - 1];
+        const imageName = parts[parts.length - 1];
+        const imagePath = `/groups/${imageName}`;
+        return imagePath;
     };
 
     return(
@@ -137,7 +140,7 @@ const Home = () => {
                             <div className={`table-item ${index % 2 === 0 ? "even-row" : "odd-row"}`} key={index}>
                                 <div>
                                     <div className='table-item-first-row'>
-                                        <img src={`../src/assets/groups/${getImageNameFromUrl(item.CryptoGroupImage)}`} alt={""} className="table-image" />
+                                        <img src={`${getImageNameFromUrl(item.CryptoGroupImage)}`} alt={""} className="table-image" />
                                         <div className='table-item-title'>
                                             <div className='table-item-title-inner'>
                                                 <span className='index-title'><span>#{index + 1}. </span>{item.NameOfCallGroup}</span>
