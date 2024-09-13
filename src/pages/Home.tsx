@@ -147,7 +147,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='table-item-second-row'>
-                                                <div className='table-item-token-name'><b className='index-title'>Token:</b> <div className='inner'>{item.TokenName}</div></div>
+                                                <div className='table-item-token-name'><b className='index-title'>Token:</b> <div className='inner'>${item.TokenName}</div></div>
                                                 <div className='table-item-timestamp'>{item.Timestamp} UTC</div>
                                             </div>
                                         </div>
