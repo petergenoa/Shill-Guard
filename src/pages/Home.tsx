@@ -101,7 +101,7 @@ const Home = () => {
     const getImageNameFromUrl = (url: string) => {
         const parts = url.split('/');
         const imageName = parts[parts.length - 1];
-        const imagePath = `/${imageName}`;
+        const imagePath = `/Shill-Guards/${imageName}`;
         return imagePath;
     };
 
