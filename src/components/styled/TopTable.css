@@ -1,0 +1,178 @@
+.table-content {
+    margin: 2px 12px;
+  }
+
+  .table-item {
+    border: 2px solid #00c8fb;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  .table-item-first-row {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+    border-bottom: 1px solid #00c9fb77;
+    padding-bottom: 4px;
+  }
+
+  .table-item-first-row img {
+    flex: 1;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 25px;
+  }
+
+  .table-item-title {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
+    font-weight: bold;
+  }
+
+  .table-item-title-inner {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: space-between;
+    text-decoration: underline;
+  }
+
+  .table-item-social {
+    display: flex;
+    gap: 4px;
+  }
+
+  .twitter {
+    fill: white !important;
+  }
+
+  .youtube {
+    fill: #FF0000;
+  }
+
+  .telegram {
+    fill: #00c8fb !important;
+  }
+
+  .table-item-second-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .table-item-token-name {
+    display: flex;
+    gap: 4px;
+  }
+
+  .table-item-token-name .inner {
+    color: lightyellow;
+    /* text-decoration: underline; */
+
+    background: #222222;
+    border: 1px solid #00c8fb;
+    padding: 0px 15px;
+    border-radius: 6px;
+  }
+
+  .table-item-timestamp {
+    text-align: end;
+    font-size: 12px;
+    color: lightyellow;
+    width: 80px;
+  }
+
+  .table-item-data {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    justify-content: space-between;
+  }
+
+  .ticker-title {
+    color: gray;
+  }
+
+  .index-title {
+    color: lightyellow;
+  }
+
+  .table-item-data div {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .table-item-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .table-item-buttons div {
+    width: 100px;
+    text-align: center;
+    padding: 2px 4px;
+    border-radius: 6px;
+  }
+
+  .table-item-buttons div a {
+    text-decoration: none;
+    color: lightyellow;
+  }
+
+  .table-item-buy a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .table-item-buy {
+    border: 1px solid #00c8fb;
+    background-color: #222222;
+    color: lightyellow;
+  }
+
+  .table-item-chart {
+    border: 1px solid #00c8fb;
+    background-color: #222222;
+    color: lightyellow;
+  }
+
+  .table-item-chart a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .table-item-scan {
+    border: 1px solid #00c8fb;
+    background-color: #222222;
+    color: lightyellow;
+  }
+
+  .table-item-scan a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .green {
+    color: rgb(27, 255, 31);
+  }
+
+  .red {
+    color: red;
+  }
+
+  .odd-row {
+    background-color: #181a20;
+  }
+
+  .even-row {
+    background-color: #1f232d;
+  }

@@ -1,0 +1,67 @@
+.statistics h2 {
+    margin-left: 12px;
+    margin-top: 0;
+}
+
+.statistics .second-title {
+    margin-top: 30px;
+}
+
+.top-token-item {
+    margin: 0px 12px;
+    border: 2px solid #00c8fb;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+}
+
+.top-token-item-first-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-token-item-first-row .name-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.top-token-item-first-row img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.top-token-item-first-row .title {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.top-token-item .table-item-data {
+    font-size: 16px;
+    justify-content: space-around;
+    margin-bottom: 0px;
+}
+
+.top-token-item .top-token-buy {
+    border-radius: 6px;
+    border: 1px solid #00c8fb;
+    background-color: #222222;
+    color: lightyellow;
+    text-align: center;
+    padding: 2px 4px;
+    width: 140px;
+}
+
+.top-token-item .top-token-buy a {
+    text-decoration: none;
+    color: lightyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

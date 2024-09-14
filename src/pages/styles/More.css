@@ -1,0 +1,19 @@
+.more {
+    margin: 0 12px;
+}
+
+.more .more-inner {
+    background-color: #282828;
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+#ton-connect-button {
+    width: 100% !important;
+}
+
+#ton-connect-button tc-root div,
+#ton-connect-button tc-root div button {
+    width: 100% !important;
+}

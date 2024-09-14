@@ -1,0 +1,27 @@
+.search-header svg {
+    padding-left: 20px;
+}
+
+.header svg {
+    font-size: 28px;
+    fill: #00c8fb;
+}
+
+.header div {
+    border: 1px solid #00c8fb;
+    background-color: #222222;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 6px;
+}
+
+.header input {
+    width: 190px;
+    background-color: #222222;
+    border: none;
+    color: white;
+    outline: none;
+    font-size: 16px;
+}

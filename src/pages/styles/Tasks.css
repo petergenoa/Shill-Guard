@@ -1,0 +1,173 @@
+.tasks-container {
+    margin: 0 12px;
+}
+
+.tasks-container h2, 
+.tasks-container h5 {
+    margin-top: 0;
+    text-align: center;
+}
+
+
+.tab-bar .tabs {
+    background-color: #222222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.tab-bar .tabs button {
+    border: none;
+    width: 23%;
+    padding: 12px;
+    background-color: #222222;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.tab-bar .tabs button.selected {
+    background-color: #00c8fb;
+}
+
+.task-first-tab {
+    background: #282828;
+    height: 68px;
+    margin-top: 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 12px;
+}
+
+.task-table-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-table-left {
+    display: flex;
+    align-items: center;
+}
+
+.left-image {
+    width: 50px !important;
+}
+
+.task-table-left img {
+    width: 40px;
+}
+
+.task-table-left-inner {
+    margin-left: 8px;
+    color: lightyellow;
+}
+
+.task-table-left-inner .task-title {
+    padding-left: 10px;
+}
+
+.task-table-left-inner-bottom {
+    display: flex;
+    align-items: center;
+}
+
+.task-table-right {
+    padding: 6px 12px;
+    background-color: #00c8fb;
+    color: #222;
+    border-radius: 12px;
+}
+
+.up-to-rewards-middle img {
+    width: 30px;
+}
+
+.social-tab {
+    margin-top: 16px;
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.social-media-icons img {
+    width: 50px;
+}
+
+.divider {
+    background-color: #00c8fb;
+    height: 1px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.up-to-rewards {
+    display: block;
+    text-align: center;
+}
+
+.up-to-rewards-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.up-to-rewards img {
+    width: 40px;
+}
+
+.add-social-content {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    background-color: #00c8fb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.add-social-content svg {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.rules ul {
+    list-style-type: decimal;
+}
+
+.rules ul li {
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+.rules .invite-input {
+    width: 100%;
+    display: block;
+    background-color: #00c8fb;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: white;
+    border: none;
+}
+
+.rules .invite-input:active {
+    border: none;
+}
