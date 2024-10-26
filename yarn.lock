@@ -1045,13 +1045,6 @@
   "resolved" "https://registry.npmjs.org/@types/estree/-/estree-1.0.0.tgz"
   "version" "1.0.0"
 
-"@types/firebase@^3.2.3":
-  "integrity" "sha512-fId22ajZ7CkTMnm/FveFcEGb7Trv97JsUk1Dvc1vIFDiwpVSGKeTUyBOA2Tr2riXe53ZP526G9WDCrq3ulE7tw=="
-  "resolved" "https://registry.npmjs.org/@types/firebase/-/firebase-3.2.3.tgz"
-  "version" "3.2.3"
-  dependencies:
-    "firebase" "*"
-
 "@types/hoist-non-react-statics@*":
   "integrity" "sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA=="
   "resolved" "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz"
@@ -1690,7 +1683,7 @@
     "locate-path" "^6.0.0"
     "path-exists" "^4.0.0"
 
-"firebase@*", "firebase@^11.0.1":
+"firebase@^11.0.1":
   "integrity" "sha512-qsFb8dMcQINEDhJteG7RP+GqwgSRvfyiexQqHd5JToDdm87i9I2rGC4XQsGawKGxzKwZ/ISdgwNWxXAFYdCC6A=="
   "resolved" "https://registry.npmjs.org/firebase/-/firebase-11.0.1.tgz"
   "version" "11.0.1"
