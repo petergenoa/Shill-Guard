@@ -17,7 +17,6 @@ import NavBar from "./pages/NavBar";
 import { UserProvider, useUserContext } from "./contexts/UserContext";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useEffect } from "react";
-// @ts-ignore
 import { db } from "./firebase";
 
 declare global {
