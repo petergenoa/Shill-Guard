@@ -69,9 +69,9 @@ const AppWrapper: React.FC = () => {
     const match = refIdString.match(refIdPattern);
     
     if (match) {
-      return match[1];  // This will return the numbers after "refId"
+      return match[1];
     } else {
-      return null;  // Return null if the string does not match the pattern
+      return null;
     }
   }
 
