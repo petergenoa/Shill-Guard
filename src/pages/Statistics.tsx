@@ -131,7 +131,7 @@ const Statistics = () => {
                                 </thead>
                                 <tbody>
                                 {topCaller.map((item, index) => (
-                                    <tr className="">
+                                    <tr className="" key={index}>
                                         <td onClick={() => handleGroupSearch(item.Name)}>#{index + 1} {item.Name}</td>
                                         <td className="green">{item.AVG_CallImmediateEffect}%</td>
                                         <td className="green">{item.AVG_FromCallToPeak}%</td>
