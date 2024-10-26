@@ -12,8 +12,8 @@ const Home = () => {
 
     const handleSearch = (query: string) => {
         console.log('Search initiated with query:', query);
-        setQueryString(query);
         setIsPopupVisible(true);
+        setQueryString(query);
     };
 
     const togglePopup = () => {

@@ -14,13 +14,69 @@ import Statistics from "./pages/Statistics";
 import Tasks from "./pages/Tasks";
 import More from "./pages/More";
 import NavBar from "./pages/NavBar";
-import { UserProvider } from "./contexts/UserContext";
+import { UserProvider, useUserContext } from "./contexts/UserContext";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { useEffect } from "react";
+// @ts-ignore
+import { db } from "./firebase";
 
 declare global {
   interface Window {
       Telegram:any;
   }
 }
+
+const AppWrapper: React.FC = () => {
+  const { registerUser, user } = useUserContext();
+  useEffect(() => {
+    const params = new URLSearchParams(window.Telegram.WebApp.initData);
+    const userData = Object.fromEntries(params);
+    if (userData.user) {
+      const userInformation = JSON.parse(userData.user);
+      if (userInformation.id && !user) {
+        const usernameFirstName = userInformation.username ? userInformation.username : userInformation.first_name;
+        registerUser(userInformation.id, usernameFirstName);
+
+        const searchParams = new URLSearchParams(window.location.search);
+        const queryString = searchParams.toString();
+        if(queryString) {
+          const refId = searchParams.get("tgWebAppStartParam");
+          if (refId) {
+            const refIdString = extractRefIdNumber(refId);
+            if (refIdString !== null) {
+              saveInvitation(refIdString, userInformation.id, usernameFirstName);
+            }
+          }
+        }
+      }
+    }
+  }, []);
+
+  const saveInvitation = async (refId: string, invitedUserId: number, invitedUsername: string) => {
+    try {
+      const refUserDoc = doc(db, "users", refId);
+      await updateDoc(refUserDoc, {
+        invitedUsers: arrayUnion({ userId: invitedUserId, username: invitedUsername })
+      });
+      console.log("Invitation saved successfully!");
+    } catch (error) {
+      console.error("Error saving invitation: ", error);
+    }
+  };
+
+  function extractRefIdNumber(refIdString: string) {
+    const refIdPattern = /^refId(\d+)$/;
+    const match = refIdString.match(refIdPattern);
+    
+    if (match) {
+      return match[1];  // This will return the numbers after "refId"
+    } else {
+      return null;  // Return null if the string does not match the pattern
+    }
+  }
+
+  return null;
+};
 
 function App() {
   const { network } = useTonConnect();
@@ -35,7 +91,7 @@ function App() {
 
   return (
     <UserProvider>
-      {/* <AppWrapper /> */}
+      <AppWrapper />
       <div id="#root">
         <Router>
           <div className="App">

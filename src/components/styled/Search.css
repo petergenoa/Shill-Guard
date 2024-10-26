@@ -7,7 +7,7 @@
     fill: #00c8fb;
 }
 
-.header div {
+.header .search-header {
     border: 1px solid #00c8fb;
     background-color: #222222;
     border-radius: 6px;
@@ -25,3 +25,46 @@
     outline: none;
     font-size: 16px;
 }
+
+.autocomplete-dropdown {
+    position: absolute;
+    background-color: #222222; /* Background color for dropdown */
+    color: white; /* Text color */
+    border: 1px solid #00c8fb;
+    width: 100%; /* Make dropdown match the input width */
+    max-height: 200px; /* Limit height with scroll if needed */
+    height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+    padding: 5px 0;
+    display: block !important;
+    top: 33px;
+  }
+  
+  .autocomplete-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Adds "..." if text is too long */
+    display: block; /* Ensure each item is a block-level element */
+    border-bottom: 1px solid #00c8fb; /* Optional: divider between items */
+  }
+  
+  .autocomplete-item:hover {
+    background-color: #555; /* Darker background on hover */
+  }
+  
+  /* Adjust the search header container */
+  .search-header {
+    position: relative; /* Ensure autocomplete dropdown is positioned relative to input */
+  }
+
+  .selected-token-hash {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+  

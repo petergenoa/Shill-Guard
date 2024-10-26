@@ -7,6 +7,15 @@
     box-sizing: border-box;
     padding: 10px;
   }
+
+  .news-bar-container .loading {
+    visibility: hidden;
+  }
+
+  .news-bar-container .ticker {
+    background: linear-gradient(90deg,rgba(24,26,32,0) 0,#00c4f7 50%,rgba(24,26,32,0));
+    max-height: 30px;
+  }
   
   .news-bar-content {
     background: linear-gradient(90deg,rgba(24,26,32,0) 0,#00c4f7 50%,rgba(24,26,32,0));

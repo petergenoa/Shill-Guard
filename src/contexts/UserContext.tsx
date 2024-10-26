@@ -1,18 +1,37 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
+// @ts-ignore
+import { db } from '../firebase';
+import { doc, setDoc, getDoc, updateDoc, arrayUnion, Timestamp } from "firebase/firestore";
+
+interface InvitedUsers {
+  username: string;
+  userId: number;
+  claimed: boolean;
+}
+
+interface EarnInfo {
+  tonWalletConnected: boolean;
+  tonWallet: string;
+  followOnX: boolean;
+  followOnTelegram: boolean;
+  followOnYoutube: boolean;
+  followTikTok: boolean;
+}
 
 interface User {
     userId: string;
-    token: string;
     username: string;
-    created_at: string;
+    createdAt: Date;
+    coins: number;
+    invitedUsers: InvitedUsers[];
+    earnInfo: EarnInfo;
 }
 
 interface UserContextProps {
     user: User | null;
-    // setUser: React.Dispatch<React.SetStateAction<User | null>>;
-    // registerUser: (user_Id: number, username: string, reference?: string) => void;
-    // handleUpdateMetaFields: (updatedFields: Partial<User>) => void;
-    // refLoginUser: (userID: string, invitedUserId: string, invitedUsername: string) => void;
+    setUser: React.Dispatch<React.SetStateAction<User | null>>;
+    registerUser: (user_Id: number, username: string, reference?: string) => void;
+    updateUser: (user: User) => Promise<void>;
 }
 
 const UserContext = createContext<UserContextProps | undefined>(undefined);
@@ -20,11 +39,48 @@ const UserContext = createContext<UserContextProps | undefined>(undefined);
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
 
+    const registerUser = async (user_Id: number, username: string, reference?: string) => {
+      const userId = user_Id.toString();
+      const userDoc = doc(db, "users", userId);
+      const userSnapshot = await getDoc(userDoc);
+  
+      if (!userSnapshot.exists()) {
+        const newUser: User = {
+          userId,
+          username,
+          createdAt: new Date(),
+          coins: 0,
+          invitedUsers: [],
+          earnInfo: {
+            tonWalletConnected: false,
+            tonWallet: '',
+            followOnX: false,
+            followOnTelegram: false,
+            followOnYoutube: false,
+            followTikTok: false
+          }
+        };
+        await setDoc(userDoc, newUser);
+        setUser(newUser);
+        console.log("User registered successfully!");
+      } else {
+        const userData = userSnapshot.data() as User;
+        setUser(userData);
+        console.log("User already registered.");
+      }
+    };
+
+    const updateUser = async (user: User) => {
+      const userDoc = doc(db, 'users', user.userId);
+      await setDoc(userDoc, user, { merge: true });
+      setUser(user);
+    };
+
     return (
-        <UserContext.Provider value={{ user }}>
-          {children}
-        </UserContext.Provider>
-      );
+      <UserContext.Provider value={{ user, setUser, registerUser, updateUser }}>
+        {children}
+      </UserContext.Provider>
+    );
   };
 
 export const useUserContext = () => {

@@ -1,6 +1,7 @@
 .statistics h2 {
     margin-left: 12px;
-    margin-top: 0;
+    margin-top: 8px;
+    margin-bottom: 4px;
 }
 
 .statistics .second-title {
@@ -48,20 +49,58 @@
     margin-bottom: 0px;
 }
 
-.top-token-item .top-token-buy {
+.stats-top5-tokens {
+    margin: 8px;
     border-radius: 6px;
     border: 1px solid #00c8fb;
-    background-color: #222222;
-    color: lightyellow;
-    text-align: center;
-    padding: 2px 4px;
-    width: 140px;
+    background-color: #1f232d;
 }
 
-.top-token-item .top-token-buy a {
-    text-decoration: none;
-    color: lightyellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+
+
+.top-table-container {
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 0;
+  }
+  
+  .top-callers-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .top-callers-table thead th {
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #00c8fb;
+    font-size: 20px;
+  }
+  
+  .top-callers-table tbody tr td {
+    padding: 8px 8px;
+    font-size: 16px;
+    color: #e0e6f1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .top-callers-table tbody tr td:first-child {
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 150px;
+  }
+  
+  .top-callers-table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .top-callers-table tbody tr td.green {
+    color: rgb(27, 255, 31);
+    font-weight: bold;
+  }

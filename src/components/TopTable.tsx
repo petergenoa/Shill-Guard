@@ -6,6 +6,8 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
 import TokenPopup from "./TokenPopup";
+import LoadingPopup from "./LoadingPopup";
+import GroupPopup from "./GroupPopup";
 
 interface MainTableItem {
     ID: string;
@@ -46,13 +48,18 @@ interface MainTableItem {
     isTop3: boolean;
     TokenImage: string;
     TokenSymbol: string;
+    BuyLinkFlozz: string;
+    ScanLink: string;
 }
 
 const TopTable: React.FC = () => {
     const [tableData, setTableData] = useState<MainTableItem[]>([]);
     const [tableLoading, setTableLoading] = useState(true);
     const [isPopupVisible, setIsPopupVisible] = useState(false);
+    const [isLoadingVisible, setIsLoadingVisible] = useState(true);
     const [queryString, setQueryString] = useState("");
+    const [groupQueryString, setGroupQueryString] = useState("");
+    const [isGroupPopupVisible, setIsGroupPopupVisible] = useState(false);
 
     useEffect(() => {
         const fetchTableData = async () => {
@@ -60,10 +67,12 @@ const TopTable: React.FC = () => {
                 const response = await fetch('https://shillguard-001-site6.etempurl.com/signals/GetAllSignals');
                 const data = await response.json();
                 setTableData(data);
+                setIsLoadingVisible(false);
                 setTableLoading(false);
             } catch (error) {
                 console.error('Error fetching news:', error);
                 setTableLoading(false);
+                setIsLoadingVisible(false);
             }
         };
 
@@ -71,7 +80,6 @@ const TopTable: React.FC = () => {
     }, []);
 
     const handleSearch = (query: string) => {
-        console.log('Search initiated with query:', query);
         setQueryString(query);
         setIsPopupVisible(true);
     };
@@ -79,6 +87,15 @@ const TopTable: React.FC = () => {
     const togglePopup = () => {
         setIsPopupVisible(!isPopupVisible);
     };
+
+    const toggleGroupPopup = () => {
+        setIsGroupPopupVisible(!isGroupPopupVisible);
+    }
+
+    const groupClicked = (groupName: string) => {
+        setGroupQueryString(groupName);
+        setIsGroupPopupVisible(true);
+    }
 
     const getImageNameFromUrl = (url: string) => {
         const parts = url.split('/');
@@ -97,13 +114,13 @@ const TopTable: React.FC = () => {
                             <div className={`table-item ${index % 2 === 0 ? "even-row" : "odd-row"}`} key={index}>
                                 <div>
                                     <div className='table-item-first-row'>
-                                        <img src={`${getImageNameFromUrl(item.CryptoGroupImage)}`} alt={""} className="table-image" />
+                                        <img src={`${getImageNameFromUrl(item.CryptoGroupImage)}`} alt={""} className="table-image" onClick={() => groupClicked(item.NameOfCallGroup)} />
                                         <div className='table-item-title'>
                                             <div className='table-item-title-inner'>
-                                                <span className='index-title'><span>#{index + 1}. </span>{item.NameOfCallGroup}</span>
+                                                <span className='index-title' onClick={() => groupClicked(item.NameOfCallGroup)}><span>#{index + 1}. </span>{item.NameOfCallGroup}</span>
                                                 <div className='table-item-social'>
-                                                    {item.TelegramLink ? <TelegramIcon className='telegram' /> : <></>}
-                                                    {item.TwitterLink ? <XIcon className='twitter' /> : <></>}
+                                                    {item.TelegramLink ? <a href={item.TelegramLink} target="_blank" rel="noopener noreferrer"><TelegramIcon className='telegram' /></a> : <></>}
+                                                    {item.TwitterLink ?  <a href={item.TwitterLink} target="_blank" rel="noopener noreferrer"><XIcon className='twitter' /></a> : <></>}
                                                 </div>
                                             </div>
                                             <div className='table-item-second-row'>
@@ -142,9 +159,9 @@ const TopTable: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className='table-item-buttons'>
-                                        <div className='table-item-buy'><a href={item.BuyLink}><AttachMoneyIcon />Buy</a></div>
-                                        <div className='table-item-chart'><a href={item.BuyLink}><ShowChartIcon />Chart</a></div>
-                                        <div className='table-item-scan'><a href={item.BuyLink}><TravelExploreOutlinedIcon />EthScan</a></div>
+                                        <div className='table-item-buy'><a href={item.BuyLinkFlozz} target="_blank" rel="noopener noreferrer"><AttachMoneyIcon />Buy</a></div>
+                                        <div className='table-item-chart'><a href={item.BuyLink} target="_blank" rel="noopener noreferrer"><ShowChartIcon />Chart</a></div>
+                                        <div className='table-item-scan'><a href={item.ScanLink} target="_blank" rel="noopener noreferrer"><TravelExploreOutlinedIcon />Scan</a></div>
                                     </div>
                                 </div>
                                 
@@ -153,6 +170,8 @@ const TopTable: React.FC = () => {
                     </div>
                 )}
                 <TokenPopup query={queryString} isVisible={isPopupVisible} onClose={togglePopup} />
+                <GroupPopup query={groupQueryString} isVisible={isGroupPopupVisible} onClose={toggleGroupPopup} />
+                <LoadingPopup isVisible={isLoadingVisible} />
             </div>
     )
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import "./styled/NewsBar.css";
+import Ticker from 'react-ticker'
 
 interface NewsItem {
     Name: string;
@@ -35,19 +36,23 @@ const NewsBar: React.FC = () => {
 
     return (
         <div className="news-bar-container">
-            {loading ? (
-                <p>Loading news...</p>
-            ) : (
-                <div className="news-bar-content" ref={tickerRef}>
-                {newsItems.map((item, index) => (
-                    <div className="news-item" key={index}>
-                    <span className="news-index">#{index + 1}</span>
-                    <img src={item.Image} alt={item.Name} className="news-image" />
-                    <span>{item.Name}</span>
-                    </div>
-                ))}
-                </div>
-            )}
+                    <Ticker>
+                        {({ index }) => (
+                            <>
+                            {loading ? (
+                                <p className='loading'>loading...</p>
+                            ) : (
+                                newsItems.map((item, index) => (
+                                    <div className="news-item" key={index}>
+                                    <span className="news-index">#{index + 1}</span>
+                                    <img src={item.Image} alt={item.Name} className="news-image" />
+                                    <span>{item.Name}</span>
+                                    </div>
+                                ))
+                            )}
+                            </>
+                        )}
+                    </Ticker>
         </div>
     );
     

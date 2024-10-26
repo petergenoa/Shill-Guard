@@ -29,25 +29,26 @@ interface StatisticsData {
 }
 
 const TokenPopup: React.FC<TokenPopupProps> = ({ query, isVisible, onClose }) => {
-  if (!isVisible) return null;
-  const [tokenStat, setTokenStat] = useState<TokenStat>();
-  const [loading, setLoading] = useState(false);
+    const [tokenStat, setTokenStat] = useState<TokenStat>();
+    const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await fetch(`https://shillguard-001-site6.etempurl.com/signals/GetTokenStat/${query}`);
-        const data = await response.json();
-        setTokenStat(data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching news:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchNews();
-}, [query]);
+    useEffect(() => {
+        if (query !== "") {
+            const fetchTokenInfo = async () => {
+                try {
+                    const response = await fetch(`https://shillguard-001-site6.etempurl.com/signals/GetTokenStat/${query}`);
+                    const data = await response.json();
+                    setTokenStat(data);
+                    setLoading(false);
+                } catch (error) {
+                    console.error('Error fetching news:', error);
+                    setLoading(false);
+                }
+            };
+            
+            fetchTokenInfo();
+        }
+    }, [query]);
 
     const getImageNameFromUrl = (url: string) => {
         const parts = url.split('/');
@@ -57,7 +58,9 @@ const TokenPopup: React.FC<TokenPopupProps> = ({ query, isVisible, onClose }) =>
     };
 
   return (
-    <div className="popup-overlay miners-popup">
+    <>
+    {isVisible && 
+    <div className="popup-overlay">
       <div className="popup-content popup-conditions">
         <div className='close-button' onClick={onClose}><CloseOutlinedIcon /></div>
         {tokenStat ?
@@ -108,12 +111,14 @@ const TokenPopup: React.FC<TokenPopupProps> = ({ query, isVisible, onClose }) =>
             </div>
         :
             <div>
-                No info for this token!
+                Loading token info...Please wait...
             </div>
         }
         <button onClick={onClose}>Close</button>
       </div>
     </div>
+      }
+    </>
   );
 };
 
