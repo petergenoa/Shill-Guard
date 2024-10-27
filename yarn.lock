@@ -554,7 +554,7 @@
     "@firebase/util" "1.10.1"
     "tslib" "^2.1.0"
 
-"@firebase/functions-types@0.6.2":
+"@firebase/functions-types@^0.6.2", "@firebase/functions-types@0.6.2":
   "integrity" "sha512-0KiJ9lZ28nS2iJJvimpY4nNccV21rkQyor5Iheu/nq8aKXJqtJdeSlZDspjPSBBiHRzo7/GMUttegnsEITqR+w=="
   "resolved" "https://registry.npmjs.org/@firebase/functions-types/-/functions-types-0.6.2.tgz"
   "version" "0.6.2"

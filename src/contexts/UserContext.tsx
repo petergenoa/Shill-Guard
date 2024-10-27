@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { db } from '../firebase';
-import { doc, setDoc, getDoc, updateDoc, arrayUnion, Timestamp } from "firebase/firestore";
+import { doc, setDoc, getDoc, updateDoc, arrayUnion, Timestamp, collection } from "firebase/firestore";
 
 interface InvitedUsers {
   username: string;
@@ -14,7 +14,15 @@ interface EarnInfo {
   followOnX: boolean;
   followOnTelegram: boolean;
   followOnYoutube: boolean;
-  followTikTok: boolean;
+  followXDetectBot: boolean;
+  followInstagram: boolean;
+  followDiscord: boolean;
+  followShillDetectBot: boolean;
+  followNewsDetectBot: boolean;
+  visitWebsite: boolean;
+  visitCMC: boolean;
+  visitCoingGecko: boolean;
+  visitToken: boolean;
 }
 
 interface User {
@@ -42,7 +50,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       const userId = user_Id.toString();
       const userDoc = doc(db, "users", userId);
       const userSnapshot = await getDoc(userDoc);
-  
+      
       if (!userSnapshot.exists()) {
         const newUser: User = {
           userId,
@@ -56,7 +64,15 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             followOnX: false,
             followOnTelegram: false,
             followOnYoutube: false,
-            followTikTok: false
+            followXDetectBot: false,
+            followInstagram: false,
+            followDiscord: false,
+            followShillDetectBot: false,
+            followNewsDetectBot: false,
+            visitWebsite: false,
+            visitCMC: false,
+            visitCoingGecko: false,
+            visitToken: false
           }
         };
         await setDoc(userDoc, newUser);

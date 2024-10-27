@@ -11,9 +11,49 @@
 
 #ton-connect-button {
     width: 100% !important;
+    display: flex;
+    justify-content: center;
 }
 
 #ton-connect-button tc-root div,
 #ton-connect-button tc-root div button {
     width: 100% !important;
+}
+
+.more-inner .title {
+    font-size: 20px;
+}
+
+.more-inner b {
+    color: #00c8fb;
+}
+
+.more-inner .padding {
+    padding-bottom: 20px;
+}
+
+.invite-button-container {
+    display: flex;
+}
+
+.more-inner button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.more-inner svg {
+    margin-left: 8px;
+}
+
+.invite-button-container button {
+    background:#00c8fb;
+    color: #222;
+    border-radius: 8px;
+    padding: 12px;
+    margin-right: 8px;
 }

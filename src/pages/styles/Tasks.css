@@ -3,7 +3,7 @@
 }
 
 .tasks-container h2, 
-.tasks-container h5 {
+.tasks-container h3 {
     margin-top: 0;
     text-align: center;
 }
@@ -81,6 +81,10 @@
     background-color: #00c8fb;
     color: #222;
     border-radius: 12px;
+}
+
+.task-table-right.visited {
+    background-color: gray;
 }
 
 .up-to-rewards-middle img {

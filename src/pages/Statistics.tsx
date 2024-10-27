@@ -101,7 +101,7 @@ const Statistics = () => {
                         </thead>
                         <tbody>
                         {topToken.map((item, index) => (
-                            <tr className="">
+                            <tr className="" key={index}>
                                 <td onClick={() => handleSearch(item.Name)}>#{index + 1} {item.Name}</td>
                                 <td className="green">{item.AVG_FromCallToPeak}%</td>
                                 <td className="green">{item.AVG_TracingImpact}%</td>
