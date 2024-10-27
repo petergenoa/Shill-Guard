@@ -31,7 +31,7 @@ const More = () => {
     }, [connected]);
 
     if(!user) {
-        return;
+        return(<></>);
     }
 
     return(

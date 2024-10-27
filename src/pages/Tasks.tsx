@@ -262,7 +262,7 @@ const Tasks = () => {
       };
     
       if (!user) {
-        return;
+        return(<></>);
       }
 
 
