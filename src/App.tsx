@@ -30,7 +30,7 @@ const AppWrapper: React.FC = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.Telegram.WebApp.initData);
     const userData = Object.fromEntries(params);
-    registerUser(123456789, "usernameFirstName");
+    // registerUser(123456789, "usernameFirstName");
     if (userData.user) {
       const userInformation = JSON.parse(userData.user);
       if (userInformation.id && !user) {
