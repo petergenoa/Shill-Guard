@@ -88,7 +88,7 @@ const TokenPopup: React.FC<TokenPopupProps> = ({ query, isVisible, onClose }) =>
 
                     <div className='token-stat-second-row'>
                         <div>
-                            <span className='gray'>CallMCap:</span> <b>{tokenStat.FirstCallMarketCap}</b>
+                            <span className='gray'>MCap:</span> <b>{tokenStat.CurrentMarketCap}</b>
                         </div>
                         <div>
                             <span className='gray'>MCapATH:</span> <b>{tokenStat.ATXMarketCap}</b>
