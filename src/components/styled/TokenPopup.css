@@ -200,3 +200,8 @@
   .token-stat .token-group-stats .token-item-first-row {
     justify-content: space-between;
   }
+
+  .token-stat .token-item-first-row div {
+    text-align: right;
+    font-size: 14px;
+  }
