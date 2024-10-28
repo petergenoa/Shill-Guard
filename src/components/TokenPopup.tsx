@@ -84,7 +84,6 @@ const TokenPopup: React.FC<TokenPopupProps> = ({ query, isVisible, onClose }) =>
                 <div className='top-group'>
                     <div className='token-stat-first-row'>
                             <div><span className='gray'>Token:</span> {tokenStat.TokenName}</div>
-                            <div><span className='gray'>Date:</span> {tokenStat.DateOfFirstCall}</div>
                     </div>
 
                     <div className='token-stat-second-row'>
@@ -113,9 +112,10 @@ const TokenPopup: React.FC<TokenPopupProps> = ({ query, isVisible, onClose }) =>
                         <div className="token-item-first-row">
                             <span className='group-first-row-token'>
                                 <span className="token-index">#{index + 1}</span>
-                                <img src={tokenStat.TokenImage} alt={tokenStat.TokenName} className="token-group-image" />
-                                <span className='name-of-group'>{tokenStat.TokenName}</span>
+                                <img src={getImageNameFromUrl(item.CallGroupImage)} alt={item.NameOfCallGroup} className="token-group-image" />
+                                <span className='name-of-group'>{item.NameOfCallGroup}</span>
                             </span>
+                            <div><span className='gray'>Date:</span> {item.DateOfCall}</div>
                         </div>
 
                         <div className='table-item-data'>
@@ -123,16 +123,7 @@ const TokenPopup: React.FC<TokenPopupProps> = ({ query, isVisible, onClose }) =>
                                 <div className='ticker-title'>CallMCp</div>
                                 <div>{item.CalledAtMarketCap}</div>
                             </div>
-                            <div>
-                                <div className='ticker-title'>MktCpATH</div>
-                                <div>{item.ReachedMarketCap}</div>
-                            </div>
-                            <div>
-                                <div className='ticker-title'>Vol.</div>
-                                <div>{tokenStat.Volume}</div>
-                            </div>
-                        </div>
-                        <div className='table-item-data'>
+
                             <div>
                                 <div className='ticker-title'>CallEfc</div>
                                 <div className={parseFloat(item.CallEfc) >= 0 ? "green" : "red"}>{item.CallEfc}</div>
