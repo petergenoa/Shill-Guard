@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import "./styled/TokenPopup.css";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
 
 interface TokenPopupProps {
   isVisible: boolean;
@@ -16,6 +19,17 @@ interface TokenStat {
     TokenName: string;
     TokenStatisticData: StatisticsData[];
     TotalCalls: string;
+    TokenSymbol: string;
+    Volume: string;
+    BuyLink: string;
+    PriceUSD: string;
+    TokenLink: string;
+    TokenChart: string;
+    UpdateBioButtonLink: string;
+    TokenImage: string;
+    CurrentMarketCap: string;
+    ATXMarketCap: string;
+    BioToken: string;
 }
 
 interface StatisticsData {
@@ -24,6 +38,8 @@ interface StatisticsData {
     DateOfCall: string;
     NameOfCallGroup: string;
     Peak: string;
+    CallEfc: string;
+    Trace: string;
     ReachedMarketCap: string;
     SignalId: string;
 }
@@ -76,37 +92,63 @@ const TokenPopup: React.FC<TokenPopupProps> = ({ query, isVisible, onClose }) =>
                             <span className='gray'>CallMCap:</span> <b>{tokenStat.FirstCallMarketCap}</b>
                         </div>
                         <div>
-                            <span className='gray'>Total Calls:</span> <b>{tokenStat.TotalCalls}</b>
+                            <span className='gray'>MCapATH:</span> <b>{tokenStat.ATXMarketCap}</b>
                         </div>
+                        <div>
+                            <span className='gray'>Volume:</span> <b>{tokenStat.Volume}</b>
+                        </div>
+                        <div>
+                            <span className='gray'>Calls:</span> <b>{tokenStat.TotalCalls}</b>
+                        </div>
+                    </div>
+                    <div className='table-item-buttons'>
+                        <div className='table-item-buy'><a href={tokenStat.BuyLink} target="_blank" rel="noopener noreferrer"><AttachMoneyIcon />Buy</a></div>
+                        <div className='table-item-chart'><a href={tokenStat.TokenChart} target="_blank" rel="noopener noreferrer"><ShowChartIcon />Chart</a></div>
+                        <div className='table-item-scan'><a href={tokenStat.TokenLink} target="_blank" rel="noopener noreferrer"><TravelExploreOutlinedIcon />Scan</a></div>
                     </div>
                 </div>
 
                 {tokenStat.TokenStatisticData.map((item, index) => (
                     <div className='token-group-stats' key={index}>
                         <div className="token-item-first-row">
-                            <span className="token-index">#{index + 1}</span>
-                            <img src={getImageNameFromUrl(item.CallGroupImage)} alt={item.NameOfCallGroup} className="token-group-image" />
-                            <span className='name-of-group'>{item.NameOfCallGroup}</span>
+                            <span className='group-first-row-token'>
+                                <span className="token-index">#{index + 1}</span>
+                                <img src={tokenStat.TokenImage} alt={tokenStat.TokenName} className="token-group-image" />
+                                <span className='name-of-group'>{tokenStat.TokenName}</span>
+                            </span>
                         </div>
 
-                        <div className='token-group-second-row'>
+                        <div className='table-item-data'>
                             <div>
-                                <span className='gray'>Date:</span> <span className='white'>{item.DateOfCall}</span>
+                                <div className='ticker-title'>CallMCp</div>
+                                <div>{item.CalledAtMarketCap}</div>
                             </div>
                             <div>
-                                <span className='gray'>Peak:</span> <b className='green'>{item.Peak}</b>
+                                <div className='ticker-title'>MktCpATH</div>
+                                <div>{item.ReachedMarketCap}</div>
+                            </div>
+                            <div>
+                                <div className='ticker-title'>Vol.</div>
+                                <div>{tokenStat.Volume}</div>
                             </div>
                         </div>
+                        <div className='table-item-data'>
+                            <div>
+                                <div className='ticker-title'>CallEfc</div>
+                                <div className={parseFloat(item.CallEfc) >= 0 ? "green" : "red"}>{item.CallEfc}</div>
+                            </div>
 
-                        <div className='token-group-third-row'>
                             <div>
-                                <span className='gray'>CallMCap:</span> <span className='white'>{item.CalledAtMarketCap}</span>
+                                <div className='ticker-title'>Trace</div>
+                                <div className={parseFloat(item.Trace) >= 0 ? "green" : "red"}>{item.Trace}</div>
                             </div>
+
                             <div>
-                                <span className='gray'>ReachMCap:</span> <span className='green'>{item.ReachedMarketCap}</span>
+                                <div className='ticker-title'>Peak</div>
+                                <div className="green">{item.Peak}</div>
                             </div>
                         </div>
-                    </div>
+                </div>
                 ))}
             </div>
         :

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import "./styled/LoadingPopup.css";
-import LoadingImage from "../assets/loading.gif";
+import LoadingImage from "../assets/logo-blue.png";
 
 interface LoadingPopupProps {
   isVisible: boolean;

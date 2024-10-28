@@ -67,21 +67,21 @@ interface TaskItem {
     {
       key:"followOnYoutube",
       image: `${Youtube}`,
-      taskTitle: 'Join our Youtube',
+      taskTitle: 'Subscribe to our YouTube channel',
       reward: 500,
       url: 'https://www.youtube.com/@ShillGuard'
     },
     {
       key:"followXDetectBot",
       image: `${XCom}`,
-      taskTitle: 'Join Shill Detect Bot on X',
+      taskTitle: 'Follow Shill Detect Bot on X',
       reward: 500,
       url: 'https://x.com/ShillDetectBot'
     },
     {
       key:"followInstagram",
       image: `${Instagram}`,
-      taskTitle: 'Join our Instagram',
+      taskTitle: 'Follow us on Instagram',
       reward: 500,
       url: 'https://www.instagram.com/shillguard_official/'
     },
@@ -264,8 +264,6 @@ const Tasks = () => {
       if (!user) {
         return(<></>);
       }
-
-
 
     return (
         <div className='tasks-container'>

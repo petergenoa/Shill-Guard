@@ -120,6 +120,26 @@
     padding: 8px;
   }
 
+  .token-group-stats .group-date-token {
+    font-size: 10px;
+    text-align: right;
+  }
+
+  .token-group-stats .group-date-token .gray {
+    display: block;
+  }
+
+  .token-group-stats .group-first-row-token span {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .token-group-stats .group-first-row-token {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
   .token-group-stats .gray {
     color: gray;
   }
@@ -135,6 +155,18 @@
   .token-group-stats img {
     width: 30px;
     border-radius: 15px;
+  }
+
+  .token-group-stats .table-item-data div {
+    min-width: 70px;
+  }
+
+  .token-group-stats .token-item-first-row {
+    justify-content: space-between;
+  }
+
+  .token-group-stats .table-item-buttons {
+    padding-top: 0;
   }
 
   .token-item-first-row {
@@ -163,4 +195,8 @@
     justify-content: space-between;
     color: lightyellow;
     align-items: center;
+  }
+
+  .token-stat .token-group-stats .token-item-first-row {
+    justify-content: space-between;
   }

@@ -8,6 +8,7 @@ import ShowChartIcon from '@mui/icons-material/ShowChart';
 import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import TokenPopup from './TokenPopup';
+import { Block } from '@mui/icons-material';
 
 interface GroupPopupProps {
   isVisible: boolean;
@@ -122,27 +123,26 @@ const GroupPopup: React.FC<GroupPopupProps> = ({ query, isVisible, onClose }) =>
                         </div>
                         <div className='group-info-title'>
                             <img src={getImageNameFromUrl(groupData[0].CryptoGroupImage)} alt="image" />
-                            <span className='group-info-info'>{groupData[0].CryptoGroupInfo}</span>
+                            <div className='group-stat-second-row'>
+                                <div className='second-row-title'>Group Success Rate</div>
+                                <div className='group-table-item-data'>
+                                    <div>
+                                        <div className='ticker-title'>CallEfc</div>
+                                        <div className={groupData[0].AVG_CallImmediateEffect >= 0 ? "green" : "red"}>{groupData[0].AVG_CallImmediateEffect}</div>
+                                    </div>
+                                    <div>
+                                        <div className='ticker-title'>Trace</div>
+                                        <div className={groupData[0].AVG_TracingImpact >= 0 ? "green" : "red"}>{groupData[0].AVG_TracingImpact}</div>
+                                    </div>
+                                    <div>
+                                        <div className='ticker-title'>Peak</div>
+                                        <div className={groupData[0].AVG_FromCallToPeak >= 0 ? "green" : "red"}>{groupData[0].AVG_FromCallToPeak}</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div className='group-stat-second-row'>
-                        <div className='second-row-title'>Group Success Rate</div>
-                        <div className='group-table-item-data'>
-                            <div>
-                                <div className='ticker-title'>CallEfc</div>
-                                <div className={groupData[0].AVG_CallImmediateEffect >= 0 ? "green" : "red"}>{groupData[0].AVG_CallImmediateEffect}</div>
-                            </div>
-                            <div>
-                                <div className='ticker-title'>Trace</div>
-                                <div className={groupData[0].AVG_TracingImpact >= 0 ? "green" : "red"}>{groupData[0].AVG_TracingImpact}</div>
-                            </div>
-                            <div>
-                                <div className='ticker-title'>Peak</div>
-                                <div className={groupData[0].AVG_FromCallToPeak >= 0 ? "green" : "red"}>{groupData[0].AVG_FromCallToPeak}</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div className={`all-time-group-container ${showAll && 'all-time-shown'}`}>
@@ -156,26 +156,45 @@ const GroupPopup: React.FC<GroupPopupProps> = ({ query, isVisible, onClose }) =>
                     .map((item, index) => (
                         <div className='token-group-stats' key={index}>
                         <div className="token-item-first-row" onClick={() => tokenSelected(item.TokenHash)}>
-                            <span className="token-index">#{index + 1}</span>
-                            <img src={item.TokenImage} alt={item.TokenName} className="token-group-image" />
-                            <span className='name-of-group'>{item.TokenName}</span> 
-                        </div>
-
-                        <div className='token-group-second-row'>
-                            <div>
+                            <span className='group-first-row-token'>
+                                <span className="token-index">#{index + 1}</span>
+                                <img src={item.TokenImage} alt={item.TokenName} className="token-group-image" />
+                                <span className='name-of-group'>{item.TokenName}</span>
+                            </span>
+                            
+                            <span className='group-date-token'>
                                 <span className='gray'>Date:</span> <span className='white'>{item.Timestamp}</span>
-                            </div>
-                            <div>
-                                <span className='gray'>Peak:</span> <b className='green'>{item.FromCalltoPeak}</b>
-                            </div>
+                            </span>
                         </div>
 
-                        <div className='token-group-third-row'>
+                        <div className='table-item-data'>
                             <div>
-                                <span className='gray'>CallMCap:</span> <span className='white'>{item.TotalMarketCapIN}</span>
+                                <div className='ticker-title'>CallMCp</div>
+                                <div>{item.TotalMarketCapIN}</div>
                             </div>
                             <div>
-                                <span className='gray'>ReachMCap:</span> <span className='green'>{item.TotalMarketCap}</span>
+                                <div className='ticker-title'>MktCp</div>
+                                <div>{item.TotalMarketCap}</div>
+                            </div>
+                            <div>
+                                <div className='ticker-title'>Vol.</div>
+                                <div>{item.VolumeGenereted_h1}</div>
+                            </div>
+                        </div>
+                        <div className='table-item-data'>
+                            <div>
+                                <div className='ticker-title'>CallEfc</div>
+                                <div className={parseFloat(item.ImpactOfCall) >= 0 ? "green" : "red"}>{item.ImpactOfCall}</div>
+                            </div>
+
+                            <div>
+                                <div className='ticker-title'>Trace</div>
+                                <div className={parseFloat(item.SuccessRate) >= 0 ? "green" : "red"}>{item.SuccessRate}</div>
+                            </div>
+
+                            <div>
+                                <div className='ticker-title'>Peak</div>
+                                <div className="green">{item.FromCalltoPeak}</div>
                             </div>
                         </div>
 
@@ -188,38 +207,58 @@ const GroupPopup: React.FC<GroupPopupProps> = ({ query, isVisible, onClose }) =>
                     ))}
                 </div>
 
+                <div className='subtitle-group-info'>Live Token Call Feed</div>
                 {groupData?.filter(item => item.OrderNumber === 0).map((item, index) => (
                     <div className='token-group-stats' key={index}>
-                        <div className="token-item-first-row" onClick={() => tokenSelected(item.TokenHash)}>
+                    <div className="token-item-first-row" onClick={() => tokenSelected(item.TokenHash)}>
+                        <span className='group-first-row-token'>
                             <span className="token-index">#{index + 1}</span>
                             <img src={item.TokenImage} alt={item.TokenName} className="token-group-image" />
-                            <span className='name-of-group'>{item.TokenName}</span> 
-                        </div>
+                            <span className='name-of-group'>{item.TokenName}</span>
+                        </span>
+                        
+                        <span className='group-date-token'>
+                            <span className='gray'>Date:</span> <span className='white'>{item.Timestamp}</span>
+                        </span>
+                    </div>
 
-                        <div className='token-group-second-row'>
-                            <div>
-                                <span className='gray'>Date:</span> <span className='white'>{item.Timestamp}</span>
-                            </div>
-                            <div>
-                                <span className='gray'>Peak:</span> <b className='green'>{item.FromCalltoPeak}</b>
-                            </div>
+                    <div className='table-item-data'>
+                        <div>
+                            <div className='ticker-title'>CallMCp</div>
+                            <div>{item.TotalMarketCapIN}</div>
                         </div>
-
-                        <div className='token-group-third-row'>
-                            <div>
-                                <span className='gray'>CallMCap:</span> <span className='white'>{item.TotalMarketCapIN}</span>
-                            </div>
-                            <div>
-                                <span className='gray'>ReachMCap:</span> <span className='green'>{item.TotalMarketCap}</span>
-                            </div>
+                        <div>
+                            <div className='ticker-title'>MktCp</div>
+                            <div>{item.TotalMarketCap}</div>
                         </div>
-
-                        <div className='table-item-buttons' style={{ paddingTop: '20px' }}>
-                            <div className='table-item-buy'><a href={item.BuyLinkFlozz} target="_blank" rel="noopener noreferrer"><AttachMoneyIcon />Buy</a></div>
-                            <div className='table-item-chart'><a href={item.BuyLink} target="_blank" rel="noopener noreferrer"><ShowChartIcon />Chart</a></div>
-                            <div className='table-item-scan'><a href={item.ScanLink} target="_blank" rel="noopener noreferrer"><TravelExploreOutlinedIcon />Scan</a></div>
+                        <div>
+                            <div className='ticker-title'>Vol.</div>
+                            <div>{item.VolumeGenereted_h1}</div>
                         </div>
                     </div>
+                    <div className='table-item-data'>
+                        <div>
+                            <div className='ticker-title'>CallEfc</div>
+                            <div className={parseFloat(item.ImpactOfCall) >= 0 ? "green" : "red"}>{item.ImpactOfCall}</div>
+                        </div>
+
+                        <div>
+                            <div className='ticker-title'>Trace</div>
+                            <div className={parseFloat(item.SuccessRate) >= 0 ? "green" : "red"}>{item.SuccessRate}</div>
+                        </div>
+
+                        <div>
+                            <div className='ticker-title'>Peak</div>
+                            <div className="green">{item.FromCalltoPeak}</div>
+                        </div>
+                    </div>
+
+                    <div className='table-item-buttons' style={{ paddingTop: '20px' }}>
+                        <div className='table-item-buy'><a href={item.BuyLinkFlozz} target="_blank" rel="noopener noreferrer"><AttachMoneyIcon />Buy</a></div>
+                        <div className='table-item-chart'><a href={item.BuyLink} target="_blank" rel="noopener noreferrer"><ShowChartIcon />Chart</a></div>
+                        <div className='table-item-scan'><a href={item.ScanLink} target="_blank" rel="noopener noreferrer"><TravelExploreOutlinedIcon />Scan</a></div>
+                    </div>
+                </div>
                 ))}
             </div>
         :
