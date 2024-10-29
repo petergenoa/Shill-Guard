@@ -14,6 +14,7 @@ interface TopToken {
     AVG_FromCallToPeak: string;
     volume: number;
     UpOrLow: string;
+    TokenHash: string;
 }
 
 const Statistics = () => {
@@ -102,7 +103,7 @@ const Statistics = () => {
                         <tbody>
                         {topToken.map((item, index) => (
                             <tr className="" key={index}>
-                                <td onClick={() => handleSearch(item.Name)}>#{index + 1} {item.Name}</td>
+                                <td onClick={() => handleSearch(item.TokenHash)}>#{index + 1} {item.Name}</td>
                                 <td className="green">{item.AVG_FromCallToPeak}%</td>
                                 <td className="green">{item.AVG_TracingImpact}%</td>
                             </tr>
