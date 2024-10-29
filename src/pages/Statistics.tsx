@@ -126,8 +126,8 @@ const Statistics = () => {
                                 <tr>
                                     <th className='ticker-title'>Name</th>
                                     <th className='ticker-title'>CallEfc</th>
-                                    <th className='ticker-title'>Peak</th>
                                     <th className='ticker-title'>Trace</th>
+                                    <th className='ticker-title'>Peak</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -135,8 +135,8 @@ const Statistics = () => {
                                     <tr className="" key={index}>
                                         <td onClick={() => handleGroupSearch(item.Name)}>#{index + 1} {item.Name}</td>
                                         <td className="green">{item.AVG_CallImmediateEffect}%</td>
-                                        <td className="green">{item.AVG_FromCallToPeak}%</td>
                                         <td className="green">{item.AVG_TracingImpact}%</td>
+                                        <td className="green">{item.AVG_FromCallToPeak}%</td>
                                     </tr>
                                 ))}
                                 </tbody>

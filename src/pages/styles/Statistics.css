@@ -79,12 +79,12 @@
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: #00c8fb;
-    font-size: 20px;
+    font-size: 16px;
   }
   
   .top-callers-table tbody tr td {
-    padding: 8px 8px;
-    font-size: 16px;
+    padding: 6px 4px;
+    font-size: 14px;
     color: #e0e6f1;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
