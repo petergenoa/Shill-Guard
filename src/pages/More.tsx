@@ -17,7 +17,7 @@ const More = () => {
 
     useEffect(() => {
         if (user && !user.earnInfo.tonWalletConnected && connected) {
-          const newCoins = user.coins + 500000;
+          const newCoins = user.coins + 50000;
           updateUser({
             ...user,
             coins: newCoins,
