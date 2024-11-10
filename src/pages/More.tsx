@@ -10,7 +10,7 @@ const More = () => {
     const { connected, wallet } = useTonConnect();
 
     const handleShare = () => {
-        const message = `Check out Gangster Games! Join through this link: https://t.me/https://t.me/ShillGuardAppBot/Shill-Guard?startapp=refId${user?.userId}`;
+        const message = `Check out ShillGuard! Join through this link: https://t.me/ShillGuardAppBot/Shill-Guard?startapp=refId${user?.userId}`;
         const url = `https://t.me/share/url?url=${encodeURIComponent(message)}`;
         window.Telegram.WebApp.openTelegramLink(url);
     };
